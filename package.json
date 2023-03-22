@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-exercises",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moiseshnava/nodejs-exercises.git"
+  },
+  "keywords": [],
+  "author": "Moises I. Hernandez Nava",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moiseshnava/nodejs-exercises/issues"
+  },
+  "homepage": "https://github.com/moiseshnava/nodejs-exercises#readme",
+  "description": ""
+}
