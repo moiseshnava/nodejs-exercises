@@ -4,8 +4,11 @@ const helloWorld = require("./src/basic/exercise-1");
 const greeting = require("./src/basic/exercise-2");
 const rl = require("./src/modules/readLine");
 const copyFile = require("./src/basic/exercise-5");
+const { server, initServer } = require("./src/basic/exercise-6");
+const app = require("./src/app");
+
 const txtFile = "./src/data/fileDemo.txt";
-const txtEmpty= "./src/data/empty.txt";
+const txtEmpty = "./src/data/";
 
 const menu = `
  ===================================================
@@ -19,9 +22,13 @@ const menu = `
 |3. READ FILE TXT.                                  |
 |4. SUM TWO NUMBERS.                                |
 |5. COPY FILE CONTENT TO OTHER FILE                 |
+|6. INIT A SERVER                                   |
 |___________________________________________________|
 
 >>> `;
+
+
+
 
 const fnMenuOp = async (op) => {
    switch (op) {
@@ -39,11 +46,19 @@ const fnMenuOp = async (op) => {
          let sumRes = await suma("Ingresa dos numeros: ");
          console.log(sumRes);
          return true;
-         case "5":
-            copyFile(txtFile, txtEmpty);
-            return true;
+      case "5":
+         copyFile(txtFile, txtEmpty);
+         return true;
+      case "6":
+         server(true);
+         return true;
+      case "7":
+         server(false);
+         return true;
       case "exit":
+         server(false);
          rl.close();
+         console.log("BYE :)");
          return false
       default:
          console.log(`Error: ${op} no es una opcion valida.`);
@@ -59,36 +74,10 @@ const fnMenuController = () => {
    });
 }
 
-// const fnMenuOp = (op) => {
-//    switch (op) {
-//       case "1":
-//          helloWorld();
-//          return true;
-//       case "2":
-//          const res = greeting("¿Cual es tu nombre?");
-//          console.log(res);
-//          return true;
-//       case "3":
-//          const resTxt = readFile(txtFile);
-//          console.log(resTxt);
-//          return true;
-//       case "exit":
-//          rl.close();
-//          return false
-//       default:
-//          console.log(`Error: ${op} no es una opcion valida.`);
-//          return true;
-//    }
-// }
-// const fnMenuController = () => {
-//    rl.question(menu, (op) => {
-//       const showMenu = fnMenuOp(op);
-//       showMenu && fnMenuController();
-//    });
-// }
 (() => {
    fnMenuController();
 })();
+
 
 
 

@@ -2,13 +2,15 @@
 const rl = require("../modules/readLine");
 const fs = require("fs");
 const txtFile = "./src/data/fileDemo.txt";
-const txtEmpty = "./src/data/empty.txt";
+const txtEmpty = "./src/data";
 
 const copyFile = async (file, destination) => {
    try {
-      
+      let data = fs.readFileSync(file, 'utf8');
+      fs.writeFileSync(destination + "newFile.txt", data);
+      console.log("New File Created.");
    } catch (error) {
-
+      console.log(error)
    }
 }
 
