@@ -1,27 +1,20 @@
-// 10. Crea una aplicación Node.js que utilice el módulo OS para obtener información del sistema operativo.
+// 9. Crea una aplicación Node.js que utilice el módulo Events para crear un evento personalizado y emitirlo.
 
-const os = require("os");
+const { EventEmitter } = require("stream");
+const rl = require("../modules/readLine");
 
+const event = () => {
+   return new Promise((resolve) => {
+      rl.question(`Ingresa el nombre del evento o "exit" para terminar: `, (eventName) => {
+         if (eventName === "exit") {
+            console.log("Saliendo de ejercicio 8...");
+            resolve(null);
+         } else {
+            console.log(`Se ha creado el evento ${eventName}`);
+            resolve(eventName);
+         }
+      });
+   });
+};
 
-
-const osData = () => {
-   let infoSystem = {
-      SO: os.type(),
-      platform: os.platform(),
-      architecture: os.arch(),
-      rootPath: os.homedir(),
-      cpus: os.cpus().length,
-      hostName: os.hostname(),
-   }
-   console.log(`
-   OPERATING SYSTEM INFO:
-      SO: ${infoSystem.SO}
-      platform: ${infoSystem.platform}
-      architecture:${infoSystem.architecture}
-      rootPath: ${infoSystem.rootPath}
-      cpus: ${infoSystem.cpus}
-      hostName:${infoSystem.hostName}
-   `);
-}
-
-module.exports = osData
+module.exports = event;

@@ -5,11 +5,11 @@ const greeting = require("./src/basic/exercise-2");
 const rl = require("./src/modules/readLine");
 const copyFile = require("./src/basic/exercise-5");
 const { server, initServer } = require("./src/basic/exercise-6");
-const app = require("./src/app");
-const pathInfo = require("./src/basic/exercise-7");
-const event = require("./src/basic/exercise-8");
+const pathInfo = require("./src/basic/exercise-8");
+const event = require("./src/basic/exercise-9");
 const EventEmitter = require("events");
-const osData = require("./src/basic/exercise-9");
+const osData = require("./src/basic/exercise-10");
+const generateTxt = require("./src/basic/exercise-7");
 const emitter = new EventEmitter();
 
 const txtFile = "./src/data/fileDemo.txt";
@@ -30,9 +30,10 @@ const menu = `
 |4. SUM TWO NUMBERS.                                |
 |5. COPY FILE CONTENT TO OTHER FILE                 |
 |6. INIT A SERVER                                   |
-|7. PATH INFO                                       |
-|8. CREATE EVENT                                    |
-|9. SO INFO                                         |
+|7. CREATE AND WRITE IN ARCHIVE TXT                 |
+|8. PATH INFO                                       |
+|9. CREATE EVENT                                    |
+|10. SO INFO                                        |
 |___________________________________________________|
 
 >>> `;
@@ -63,15 +64,18 @@ const fnMenuOp = async (op) => {
          server(true);
          return true;
       case "7":
-         pathInfo(txtFile);
+         await generateTxt();
          return true
       case "8":
+         pathInfo(txtFile);
+         return true
+      case "9":
          const eventName = await event();
          if (eventName) {
             emitter.emit(eventName);
          }
          return true;
-      case "9":
+      case "10":
          osData();
          return true;
       case "close server":
