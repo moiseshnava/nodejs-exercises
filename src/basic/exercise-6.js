@@ -7,7 +7,8 @@ let serverStatus;
 
 const initServer = () => {
    serverStatus = app.listen(PORT, () => {
-      console.log(`Listen on port ${PORT}`);
+      // console.log(`Listen on port ${PORT}`);
+      console.log("Hello world, server is already running...");
    });
    serverStarted = true;
 }
@@ -41,7 +42,7 @@ const closeServer = () => {
 const server = (init) => {
    if (init) {
       if (serverStarted) {
-         console.log("Server is already running");
+         console.log("Server is already running...");
       } else {
          initServer();
       }

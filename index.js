@@ -6,6 +6,11 @@ const rl = require("./src/modules/readLine");
 const copyFile = require("./src/basic/exercise-5");
 const { server, initServer } = require("./src/basic/exercise-6");
 const app = require("./src/app");
+const pathInfo = require("./src/basic/exercise-7");
+const event = require("./src/basic/exercise-8");
+const EventEmitter = require("events");
+const osData = require("./src/basic/exercise-9");
+const emitter = new EventEmitter();
 
 const txtFile = "./src/data/fileDemo.txt";
 const txtEmpty = "./src/data/";
@@ -16,6 +21,8 @@ const menu = `
  ===================================================
 |BIENBENID@ POR FAVOR SELECCIONA UN OPCION DEL MENU.|
 |___________________________________________________|
+|HELPS:                                             |
+|CLOSE SERVER WRITE: "close server"                 |
 |NIVEL BASICO:                                      |
 |1.-HELLO WORLD.                                    |
 |2. GREETING.                                       |
@@ -23,6 +30,9 @@ const menu = `
 |4. SUM TWO NUMBERS.                                |
 |5. COPY FILE CONTENT TO OTHER FILE                 |
 |6. INIT A SERVER                                   |
+|7. PATH INFO                                       |
+|8. CREATE EVENT                                    |
+|9. SO INFO                                         |
 |___________________________________________________|
 
 >>> `;
@@ -53,9 +63,22 @@ const fnMenuOp = async (op) => {
          server(true);
          return true;
       case "7":
+         pathInfo(txtFile);
+         return true
+      case "8":
+         const eventName = await event();
+         if (eventName) {
+            emitter.emit(eventName);
+         }
+         return true;
+      case "9":
+         osData();
+         return true;
+      case "close server":
          server(false);
          return true;
       case "exit":
+         server(false);
          server(false);
          rl.close();
          console.log("BYE :)");
