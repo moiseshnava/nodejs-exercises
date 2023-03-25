@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const greetingRouter = require("./greeteng");
+const greetingRouter = require("../routes/greeteng");
 
 
 const mainRouter = Router();

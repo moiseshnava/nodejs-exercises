@@ -1,6 +1,6 @@
 // 7. Crea una aplicación Node.js que utilice el módulo FS para crear un archivo de texto y escribir en él.
 const fs = require("fs");
-const rl2 = require("../modules/readLine");
+const rl2 = require("../../modules/readLine");
 const destination = "./src/data/";
 
 const createTitle = async () => {

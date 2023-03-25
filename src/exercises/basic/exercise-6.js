@@ -1,6 +1,7 @@
 //6. Crea una aplicación Node.js que utilice el módulo HTTP para crear un servidor que responda con "Hola, mundo!".
-const app = require("../app");
+const app = require("../../app");
 const PORT = process.env.PORT || 3001;
+
 
 let serverStarted = false;
 let serverStatus;

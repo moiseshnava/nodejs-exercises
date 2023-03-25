@@ -1,7 +1,7 @@
 // 9. Crea una aplicación Node.js que utilice el módulo Events para crear un evento personalizado y emitirlo.
 
 const { EventEmitter } = require("stream");
-const rl = require("../modules/readLine");
+const rl = require("../../modules/readLine");
 
 const event = () => {
    return new Promise((resolve) => {

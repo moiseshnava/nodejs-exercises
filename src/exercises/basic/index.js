@@ -8,12 +8,14 @@ const generateTxt = require("./exercise-7");
 const pathInfo = require("./exercise-8");
 const event = require("./exercise-9");
 const osData = require("./exercise-10");
-const rl = require("../modules/readLine");
+const rl = require("../../modules/readLine");
 const EventEmitter = require("events");
+const path = require("path");
 
 const emitter = new EventEmitter();
 const txtFile = "../data/fileDemo.txt";
 const txtEmpty = "../data/";
+
 
 const menu = `
  ===================================================
@@ -100,5 +102,14 @@ const fnMenuController = () => {
 
    });
 }
+
+// const { fnMenuController } = require("./src/exercises/basic");
+
+
+
+(() => {
+   fnMenuController();
+})();
+
 
 module.exports = { fnMenuController }

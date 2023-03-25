@@ -1,11 +1,12 @@
 // Crea una aplicación Node.js que lea un archivo de texto y lo imprima en la consola.
 const fs = require("fs");
 const path = require("path");
-const rl = require("../modules/readLine");
+const rl = require("../../modules/readLine");
+
 
 const readFile = (file) => {
    try {
-      const filePath = path.join(__dirname, '..', 'data', file);
+      const filePath = path.join(__dirname, '..', file);
       const res = fs.readFileSync(filePath, 'utf8', (err, data) => {
          if (err) throw err;
       });

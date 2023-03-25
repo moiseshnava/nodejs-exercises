@@ -1,4 +1,4 @@
-const { fnMenuController } = require("./src/basic");
+const { fnMenuController } = require("./src/exercises/basic");
 
 
 

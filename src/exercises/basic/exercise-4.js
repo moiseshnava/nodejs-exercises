@@ -1,6 +1,6 @@
 // Crea una aplicación Node.js que permita al usuario ingresar dos números y luego imprima la suma en la consola;
 const readline = require("readline");
-const rl = require("../modules/readLine");
+const rl = require("../../modules/readLine");
 
 const suma = async (msj) => {
    try {

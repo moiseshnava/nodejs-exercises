@@ -1,5 +1,5 @@
 // Crea una aplicación Node.js que solicite al usuario su nombre y luego lo imprima en la consola.
-const rl = require("../modules/readLine.js");
+const rl = require("../../modules/readLine.js");
 
 const greetings = async (msj) => {
    try {
