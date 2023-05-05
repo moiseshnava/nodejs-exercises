@@ -15,8 +15,8 @@ const createUserHandler = async (req, res) => {
       const user = await createUser(name, email, phone);
       res.status(201).json(user);
    } catch (error) {
-      console.log(error);
-      res.status(400).json({error: error });
+      console.log(error.errors[0].message);
+      res.status(400).json({ error: error });
    }
 }
 
@@ -46,13 +46,14 @@ const getUserByIdHandler = async (req, res) => {
 
 // update user
 const updateUserHandler = async (req, res) => {
+   const { id } = req.params;
+   const { name, email, phone } = req.body;
    try {
-      const { id, name, email, phone } = req.body;
-      let newData = { name, email, phone }
-      const update = await updateUser(id, updateUser);
-      res.status(201).json(update);
       if (!id) throw new Error("Missing data");
-      res.status(200).json()
+      let newData = { name, email, phone };
+      const update = await updateUser(id, newData);
+      
+      res.status(201).json(update);
    } catch (error) {
       res.status(400).json({ error: error });
    }
@@ -61,9 +62,9 @@ const updateUserHandler = async (req, res) => {
 // delete user
 
 const deleteUserHandler = async (req, res) => {
+   const { id } = req.params;
+   if (!id) throw new Error("Missing data");
    try {
-      const { id } = req.params;
-      if (!id) throw new Error("Missing data");
       const result = await deleteUser(id);
       res.status(200).json(result);
    } catch (error) {

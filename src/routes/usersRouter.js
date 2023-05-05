@@ -20,8 +20,17 @@ const validate = (req, res, next) => {
 // create user
 usersRouter.post("/", validate, createUserHandler);
 
-// get users
+// get all users or get by name
 usersRouter.get("/", getUsersHandler);
+
+// get user by id
+usersRouter.get("/:id", getUserByIdHandler);
+
+// update user
+usersRouter.put("/:id", updateUserHandler);
+
+// delete user by id
+usersRouter.delete("/:id", deleteUserHandler);
 
 
 module.exports = usersRouter;

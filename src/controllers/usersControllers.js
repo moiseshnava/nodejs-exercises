@@ -13,7 +13,8 @@ const createUser = async (name, email, phone) => {
 
 // get user by id
 const getUserById = async (id) => {
-   const user = await User.findByPK(id);
+   console.log(id);
+   const user = await User.findByPk(id);
    return user;
 }
 
