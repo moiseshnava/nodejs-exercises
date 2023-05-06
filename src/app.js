@@ -15,6 +15,7 @@ app.use(morgan("dev"));
 // middleware para usar json
 app.use(express.json());
 
+// definir las rutas
 app.use(mainRouter);
 
 // no olvidar la s en "exports"
